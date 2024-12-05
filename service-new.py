@@ -1,13 +1,30 @@
 from openai import AzureOpenAI
 from azure.identity import DefaultAzureCredential
 
-# Get service credentials properly
+# Get service credentials
 credential = dbutils.credentials.getServiceCredentialsProvider("svc-cred-nprd-openai")
 
-# Initialize Azure OpenAI client correctly
+# Get bearer token provider
+def get_bearer_token_provider():
+    return credential.token
+
+# Initialize Azure OpenAI client
 client = AzureOpenAI(
-    azure_endpoint="https://your-resource-name.openai.azure.com",
-    api_version="2024-02-01",
-    azure_ad_token_provider=credential
+    azure_endpoint="https://openai-ental-nprd.openai.azure.com/",
+    api_version="2024-02-15-preview",
+    azure_ad_token_provider=get_bearer_token_provider
 )
+
+# Test with a simple chat completion
+response = client.chat.completions.create(
+    model="gpt-4o",  # Replace with your actual deployment name
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Hello, how are you?"}
+    ]
+)
+
+# Print response
+print(response.choices[0].message.content)
+
 
