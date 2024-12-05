@@ -10,7 +10,7 @@ def get_bearer_token_provider():
 
 # Initialize Azure OpenAI client
 client = AzureOpenAI(
-    azure_endpoint="https://openai-ental-nprd.openai.azure.com/",
+    azure_endpoint="https://opena.openai.azure.com/",
     api_version="2024-02-15-preview",
     azure_ad_token_provider=get_bearer_token_provider
 )
