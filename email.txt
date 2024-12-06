@@ -1,0 +1,26 @@
+Here’s a rewritten version of the email for clarity and professionalism:
+
+Subject: RE: Unity Catalog Service credential is in preview
+
+Hi [Team/All],
+
+Thank you, D, for validating the NCC setup configuration.
+
+I am now able to test the NCC setup for serverless compute.
+Here’s a summary of the completed setup:
+	1.	NCC was created at the Databricks account level using Terraform.
+	2.	Private connections were successfully established to serverless compute nodes from both Key Vault and Azure OpenAI.
+	3.	After these configurations, the Key Vault service credentials were successfully tested from the serverless compute environment.
+
+Notes:
+	•	Private endpoints were created as follows:
+	•	Key Vault: Within the respective subnet, including a private endpoint for Databricks NCC.
+	•	OpenAI: Similarly within the subnet, along with a private endpoint for Databricks NCC.
+	•	An additional package (typing_extensions==4.5.0) was installed on the serverless compute node during the testing of the service credentials.
+
+Please let me know if further clarification or additional steps are needed.
+
+Best regards,
+[Your Name]
+
+Let me know if you’d like to adjust anything further!
